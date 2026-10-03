@@ -1,15 +1,15 @@
-baseURL = "https://example.com"
+baseURL = "https://zran147.github.io"
 
 # theme
 # 主题
 theme = "LoveIt"
 # themes directory
 # 主题目录
-themesDir = "../.."
+# themesDir = "../.."
 
 # website title
 # 网站标题
-title = "LoveIt"
+title = "Muhammad Zahran's Portfolio"
 
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
 # 设置默认的语言 ["en", "zh-cn", "fr", "pl", ...]
@@ -33,7 +33,7 @@ copyright = ""
 enableRobotsTXT = true
 # whether to use git commit log
 # 是否使用 git 信息
-enableGitInfo = true
+enableGitInfo = false
 # whether to use emoji code
 # 是否使用 emoji 代码
 enableEmoji = true
@@ -111,8 +111,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Author config
   # 作者配置
   [params.author]
-    name = "xxxx"
-    email = ""
+    name = "Muhammad Zahran"
+    email = "zahransupriatna@gmail.com"
     link = ""
 
   # Header config
@@ -308,10 +308,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Social config in home page
   # 主页的社交信息设置
   [params.social]
-    GitHub = ""
-    Linkedin = ""
+    GitHub = "zran147"
+    Linkedin = "muhammad-zahran-1a35441a5"
     X = ""
-    Instagram = ""
+    Instagram = "z__ran"
     Facebook = ""
     Telegram = ""
     Medium = ""
@@ -370,7 +370,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     XMPP = ""
     Matrix = ""
     Bilibili = ""
-    Discord = ""
+    Discord = "z__ran"
     DiscordInvite = ""
     Lichess = ""
     ORCID = ""
@@ -389,7 +389,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     LeetCode = ""
     LeetCodeCN = ""
     Bluesky = ""
-    Email = ""
+    Email = "zahransupriatna@gmail.com"
     RSS = ""
 
   # Page global config
@@ -469,7 +469,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     [params.page.mapbox]
       # access token of Mapbox GL JS
       # Mapbox GL JS 的 access token
-      accessToken = "pk.eyJ1IjoiZGlsbG9uenEiLCJhIjoiY2s2czd2M2x3MDA0NjNmcGxmcjVrZmc2cyJ9.aSjv2BNuZUfARvxRYjSVZQ"
+      accessToken = ""
       # style for the light theme
       # 浅色主题的地图样式
       lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
@@ -891,7 +891,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     [languages.en.params]
       [languages.en.params.search]
         enable = true
-        type = "algolia"
+        type = "fuse"
         contentLength = 4000
         placeholder = ""
         maxResultLength = 10
@@ -899,9 +899,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         highlightTag = "em"
         absoluteURL = false
         [languages.en.params.search.algolia]
-          index = "index"
-          appID = "4D1IDY8JU6"
-          searchKey = "05332ac5ed76655a511f0da583a9afac"
+          index = ""
+          appID = ""
+          searchKey = ""
       [languages.en.params.home]
         rss = 10
         [languages.en.params.home.profile]
@@ -988,7 +988,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     [languages.zh-cn.params]
       [languages.zh-cn.params.search]
         enable = true
-        type = "algolia"
+        type = "fuse"
         contentLength = 4000
         placeholder = ""
         maxResultLength = 10
@@ -996,9 +996,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         highlightTag = "em"
         absoluteURL = false
         [languages.zh-cn.params.search.algolia]
-          index = "index"
-          appID = "GZT24PWKNT"
-          searchKey = "634ab679e825b815de2663de38908f9d"
+          index = ""
+          appID = ""
+          searchKey = ""
       [languages.zh-cn.params.home]
         rss = 10
         [languages.zh-cn.params.home.profile]
