@@ -114,6 +114,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     name = "Muhammad Zahran"
     email = "zahransupriatna@gmail.com"
     link = ""
+    age = "22"
+    country = "Indonesia"
+    location = "Depok, Jawa Barat"
+    occupation = "Security Engineer and Red Teamer"
 
   # Header config
   # 页面头部导航栏配置

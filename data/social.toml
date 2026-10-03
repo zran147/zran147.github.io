@@ -1,0 +1,29 @@
+[[socials]]
+name  = "Instagram"
+class = "instagram"
+icon  = "icon-social-instagram"
+url   = "https://www.instagram.com/z__ran"
+
+[[socials]]
+name  = "GitHub"
+class = "github"
+icon  = "icon-social-github"
+url   = "https://github.com/zran147"
+
+[[socials]]
+name  = "Discord"
+class = "discord"
+icon  = "fab fa-discord"
+url   = "https://discord.com/users/z__ran"
+
+[[socials]]
+name  = "LinkedIn"
+class = "linkedin"
+icon  = "icon-social-linkedin"
+url   = "https://www.linkedin.com/in/muhammad-zahran-1a35441a5"
+
+[[socials]]
+name  = "Gmail"
+class = "google"
+icon  = "icon-social-google"
+url   = "mailto:zahransupriatna@gmail.com"

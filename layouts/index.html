@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.Title }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" integrity="sha512-QKC1UZ/ZHNgFzVKSAhV5v5j73eeL9EEN289eKAEFaAjgAiobVAnVv/AGuPbXsKl1dNoel3kNr6PYnSiTzVVBCw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {{ $css := resources.Get "css/main.css" }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ $css := resources.Get "css/animate.css" }}
+  <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+
+<body>
+
+  <header id="header-wrap">
+
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+            aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="icon-menu"></span>
+            <span class="icon-menu"></span>
+            <span class="icon-menu"></span>
+          </button>
+          <a href="index.html" class="navbar-brand">zran</a>
+        </div>
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="onepage-nev navbar-nav mr-auto w-100 justify-content-end clearfix">
+            <li class="nav-item active">
+              <a class="nav-link" href="#hero-area">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">
+                About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resume">
+                Resume
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">
+                Projects
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <ul class="onepage-nev mobile-menu">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#blog">Blog</a>
+        </li>
+        <li>
+          <a href="#resume">Resume</a>
+        </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div id="hero-area" style="background: url(/images/hero.png) center/cover no-repeat fixed;">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 text-center">
+            <div class="contents">
+              <h5 class="script-font wow animate__fadeInUp animate__animated animate__fast" data-wow-delay="0.2s" style="visibility: visible;-webkit-animation-delay: 0.2s; -moz-animation-delay: 0.2s; animation-delay: 0.2s;">Hi, I'm</h5>
+              <h2 class="head-title wow animate__fadeInUp animate__animated animate__fast" data-wow-delay="0.4s" style="visibility: visible;-webkit-animation-delay: 0.4s; -moz-animation-delay: 0.4s; animation-delay: 0.4s;">{{ site.Params.author.name }}</h2>
+              <p class="script-font wow animate__fadeInUp animate__animated animate__fast" data-wow-delay="0.6s" style="visibility: visible;-webkit-animation-delay: 0.6s; -moz-animation-delay: 0.6s; animation-delay: 0.6s;">{{ site.Params.author.occupation }}</p>
+              <ul class="social-icon wow animate__fadeInUp animate__animated animate__fast" data-wow-delay="0.8s" style="visibility: visible;-webkit-animation-delay: 0.8s; -moz-animation-delay: 0.8s; animation-delay: 0.8s;">
+                {{ range .Site.Data.social.socials }}
+                  <li>
+                    <a class={{ .class }} href="{{ .url }}" target="_blank" rel="noopener">
+                      <i class="{{ .icon }}"></i>
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+              <div class="header-button wow animate__fadeInUp animate__animated animate__fast" data-wow-delay="1s" style="visibility: visible;-webkit-animation-delay: 1s; -moz-animation-delay: 1s; animation-delay: 1s;">
+                <a href="#" class="btn btn-common">Get a Free Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 d-flex align-items-center">
+          <div class="img-thumb wow animate__fadeInLeft animate__animated" data-wow-delay="0.3s">
+            <img class="img-fluid" src="/images/about.png" alt>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 ps-5">
+          <div class="profile-wrapper wow animate__fadeInRight animate__animated" data-wow-delay="0.3s">
+            <div class="section-title">
+              <span>My Story</span>
+              <h2>About Me</h2>
+              <div></div>
+            </div>
+            <!-- <button class="btn btn-common mt-4">About</button>
+            <button class="btn btn-common mt-4">Experience</button>
+            <button class="btn btn-common mt-4">About</button> -->
+            <p class="mt-5">Hi there, I'm Zahran. I am currently a Security Engineer at Seclab Indonesia. I am interested in Active Directory Attacks, Binary Exploitation, and Red Teaming in general. I used to actively participate in national Capture The Flag competitions with my team, CP Enjoyer.</p>
+            <div class="about-profile">
+              <ul class="admin-profile">
+                <li><span class="pro-title"> Name </span> <span class="pro-detail">{{ site.Params.author.name }}</span>
+                </li>
+                <li><span class="pro-title"> Age </span> <span class="pro-detail">{{ site.Params.author.age }} Years</span></li>
+                <li><span class="pro-title"> Country </span> <span class="pro-detail">{{ site.Params.author.country }}</span></li>
+                <li><span class="pro-title"> Location </span> <span class="pro-detail">{{ site.Params.author.location }}</span></li>
+                <li><span class="pro-title"> Email </span> <span class="pro-detail">{{ site.Params.author.email }}</span></li>
+                <!-- <li><span class="pro-title"> Discord </span> <span class="pro-detail">{{ site.Data.social.GitHub }}</span></li> -->
+              </ul>
+            </div>
+            <a href="#" class="btn btn-common"><i class="icon-paper-clip"></i> Download Resume</a>
+            <a href="#" class="btn btn-danger"><i class="icon-speech"></i> Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="blog" class="services section-padding">
+    <div class="container">
+      <div class="section-title">
+        <span>My Blog</span>
+        <h2>Ctf Writeups</h2>
+        <div></div>
+      </div>
+      <div class="row mt-5">
+
+        <div class="col-md-6 col-lg-3 col-xs-12">
+          <div class="services-item wow animate__fadeInDown animate__animated" data-wow-delay="0.3s">
+            <div class="icon">
+              <i class="icon-grid"></i>
+            </div>
+            <div class="services-content">
+              <h3><a href="#">Cyber Jawara 2023</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 col-xs-12">
+          <div class="services-item wow animate__fadeInDown animate__animated" data-wow-delay="0.6s">
+            <div class="icon">
+              <i class="icon-layers"></i>
+            </div>
+            <div class="services-content">
+              <h3><a href="#">Techcomfest 2024</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 col-xs-12">
+          <div class="services-item wow animate__fadeInDown animate__animated" data-wow-delay="0.9s">
+            <div class="icon">
+              <i class="icon-briefcase"></i>
+            </div>
+            <div class="services-content">
+              <h3><a href="#">Netcomp 4.0</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 col-xs-12">
+          <div class="services-item wow animate__fadeInDown animate__animated" data-wow-delay="1.2s">
+            <div class="icon">
+              <i class="icon-bubbles"></i>
+            </div>
+            <div class="services-content">
+              <h3><a href="#">Technofair 10.0</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="resume" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="education wow animate__fadeInRight animate__animated" data-wow-delay="0.3s">
+            <ul class="timeline">
+              <li>
+                <i class="icon-graduation"></i>
+                <h3 class="timelin-title">Education</h3>
+              </li>
+              <li>
+                <div class="content-text">
+                  <h4 class="line-title">Computer Science - IPB University</h4>
+                  <span>2021 - 2026</span>
+                  <p class="line-text">Graduated with a GPA of 3.91. Actively participated as an assistant lecturer for Computational Thinking and Programming courses</p>
+                </div>
+              </li>
+              <li>
+                <div class="content-text">
+                  <h4 class="line-title">High School - SMA Negeri 15 Medan</h4>
+                  <span>2018 - 2021</span>
+                  <p class="line-text">Chosen to be part of the honors class since the second year, and contributed as vice chairman of the class, while active in multiple extracurricular activities</p>
+                </div>
+              </li>
+              <li>
+                <div class="content-text">
+                  <h4 class="line-title">Middle School - SMPIT Al-Fityan School Medan</h4>
+                  <span>2015 - 2018</span>
+                  <p class="line-text">Participated in the robotics extracurricular activites</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="experience wow animate__fadeInRight animate__animated" data-wow-delay="0.6s">
+            <ul class="timeline">
+              <li>
+                <i class="icon-briefcase"></i>
+                <h3 class="timelin-title">Experience</h3>
+              </li>
+              <li>
+                <div class="content-text">
+                  <h4 class="line-title">Vice President - Himalkom IPB</h4>
+                  <span>Dec 2023 - Dec 2024</span>
+                  <p class="line-text">Managed seven divisions, overseeing the planning, execution, and evaluation of activities, and supervising the Education division</p>
+                </div>
+              </li>
+              <li>
+                <div class="content-text">
+                  <h4 class="line-title">Chief Officer - Computer Problem Solving Competition</h4>
+                  <span>May 2023 - Oct 2023</span>
+                  <p class="line-text">Led eight divisions with a total of 54 people, ensuring consistent planning, execution and communication in each division</p>
+                </div>
+              </li>
+              <li>
+                <div class="content-text">
+                  <h4 class="line-title">Deputy Head of Secretariat Division - IT Today 2023</h4>
+                  <span>Jan 2023 - Oct 2023</span>
+                  <p class="line-text">Co-managed a division of six people and led the development and maintenance of IT Today's website</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <section id="projects" class="section-padding"> -->
+  <!---->
+  <!--   <div class="container"> -->
+  <!--     <h2 class="section-title wow flipInX" data-wow-delay="0.4s">My Remarkable Works</h2> -->
+  <!--     <div class="row"> -->
+  <!--       <div class="col-md-12"> -->
+  <!---->
+  <!--         <div class="controls text-center"> -->
+  <!--           <a class="filter active btn btn-common" data-filter="all"> -->
+  <!--             All -->
+  <!--           </a> -->
+  <!--           <a class="filter btn btn-common" data-filter=".design"> -->
+  <!--             Design -->
+  <!--           </a> -->
+  <!--           <a class="filter btn btn-common" data-filter=".development"> -->
+  <!--             Development -->
+  <!--           </a> -->
+  <!--           <a class="filter btn btn-common" data-filter=".print"> -->
+  <!--             Print -->
+  <!--           </a> -->
+  <!--         </div> -->
+  <!---->
+  <!--       </div> -->
+  <!---->
+  <!--       <div id="portfolio" class="row wow fadeInDown" data-wow-delay="0.4s"> -->
+  <!--         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print"> -->
+  <!--           <div class="portfolio-item"> -->
+  <!--             <div class="shot-item"> -->
+  <!--               <img src="assets/img/gallery/img-1.jpg" alt /> -->
+  <!--               <div class="overlay"> -->
+  <!--                 <div class="icons"> -->
+  <!--                   <a class="lightbox preview" href="assets/img/gallery/img-1.jpg"> -->
+  <!--                     <i class="icon-eye"></i> -->
+  <!--                   </a> -->
+  <!--                   <a class="link" href="#"> -->
+  <!--                     <i class="icon-link"></i> -->
+  <!--                   </a> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print"> -->
+  <!--           <div class="portfolio-item"> -->
+  <!--             <div class="shot-item"> -->
+  <!--               <img src="assets/img/gallery/img-2.jpg" alt /> -->
+  <!--               <div class="overlay"> -->
+  <!--                 <div class="icons"> -->
+  <!--                   <a class="lightbox preview" href="assets/img/gallery/img-2.jpg"> -->
+  <!--                     <i class="icon-eye"></i> -->
+  <!--                   </a> -->
+  <!--                   <a class="link" href="#"> -->
+  <!--                     <i class="icon-link"></i> -->
+  <!--                   </a> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development"> -->
+  <!--           <div class="portfolio-item"> -->
+  <!--             <div class="shot-item"> -->
+  <!--               <img src="assets/img/gallery/img-3.jpg" alt /> -->
+  <!--               <div class="overlay"> -->
+  <!--                 <div class="icons"> -->
+  <!--                   <a class="lightbox preview" href="assets/img/gallery/img-3.jpg"> -->
+  <!--                     <i class="icon-eye"></i> -->
+  <!--                   </a> -->
+  <!--                   <a class="link" href="#"> -->
+  <!--                     <i class="icon-link"></i> -->
+  <!--                   </a> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design"> -->
+  <!--           <div class="portfolio-item"> -->
+  <!--             <div class="shot-item"> -->
+  <!--               <img src="assets/img/gallery/img-4.jpg" alt /> -->
+  <!--               <div class="overlay"> -->
+  <!--                 <div class="icons"> -->
+  <!--                   <a class="lightbox preview" href="assets/img/gallery/img-4.jpg"> -->
+  <!--                     <i class="icon-eye"></i> -->
+  <!--                   </a> -->
+  <!--                   <a class="link" href="#"> -->
+  <!--                     <i class="icon-link"></i> -->
+  <!--                   </a> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development"> -->
+  <!--           <div class="portfolio-item"> -->
+  <!--             <div class="shot-item"> -->
+  <!--               <img src="assets/img/gallery/img-5.jpg" alt /> -->
+  <!--               <div class="overlay"> -->
+  <!--                 <div class="icons"> -->
+  <!--                   <a class="lightbox preview" href="assets/img/gallery/img-5.jpg"> -->
+  <!--                     <i class="icon-eye"></i> -->
+  <!--                   </a> -->
+  <!--                   <a class="link" href="#"> -->
+  <!--                     <i class="icon-link"></i> -->
+  <!--                   </a> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design"> -->
+  <!--           <div class="portfolio-item"> -->
+  <!--             <div class="shot-item"> -->
+  <!--               <img src="assets/img/gallery/img-6.jpg" alt /> -->
+  <!--               <div class="overlay"> -->
+  <!--                 <div class="icons"> -->
+  <!--                   <a class="lightbox preview" href="assets/img/gallery/img-6.jpg"> -->
+  <!--                     <i class="icon-eye"></i> -->
+  <!--                   </a> -->
+  <!--                   <a class="link" href="#"> -->
+  <!--                     <i class="icon-link"></i> -->
+  <!--                   </a> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!---->
+  <!-- </section> -->
+
+
+  <!-- <section class="counter-section section-padding"> -->
+  <!--   <div class="container"> -->
+  <!--     <div class="row"> -->
+  <!---->
+  <!--       <div class="col-md-3 col-sm-6 work-counter-widget text-center"> -->
+  <!--         <div class="counter wow fadeInDown" data-wow-delay="0.3s"> -->
+  <!--           <div class="icon"><i class="icon-briefcase"></i></div> -->
+  <!--           <div class="counterUp">250</div> -->
+  <!--           <p>Project Working</p> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!---->
+  <!--       <div class="col-md-3 col-sm-6 work-counter-widget text-center"> -->
+  <!--         <div class="counter wow fadeInDown" data-wow-delay="0.6s"> -->
+  <!--           <div class="icon"><i class="icon-check"></i></div> -->
+  <!--           <div class="counterUp">950</div> -->
+  <!--           <p>Project Done</p> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!---->
+  <!--       <div class="col-md-3 col-sm-6 work-counter-widget text-center"> -->
+  <!--         <div class="counter wow fadeInDown" data-wow-delay="0.9s"> -->
+  <!--           <div class="icon"><i class="icon-diamond"></i></div> -->
+  <!--           <div class="counterUp">150</div> -->
+  <!--           <p>Awards Received</p> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!---->
+  <!--       <div class="col-md-3 col-sm-6 work-counter-widget text-center"> -->
+  <!--         <div class="counter wow fadeInDown" data-wow-delay="1.2s"> -->
+  <!--           <div class="icon"><i class="icon-heart"></i></div> -->
+  <!--           <div class="counterUp">299</div> -->
+  <!--           <p>Happy Clients</p> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </section> -->
+
+
+  <!-- <section id="contact" class="section-padding"> -->
+  <!--   <div class="contact-form"> -->
+  <!--     <div class="container"> -->
+  <!--       <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s"> -->
+  <!--         <div class="col-md-6 col-lg-6 col-sm-12"> -->
+  <!--           <div class="contact-block"> -->
+  <!--             <h2>Contact Form</h2> -->
+  <!--             <form id="contactForm"> -->
+  <!--               <div class="row"> -->
+  <!--                 <div class="col-md-6"> -->
+  <!--                   <div class="form-group"> -->
+  <!--                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required -->
+  <!--                       data-error="Please enter your name"> -->
+  <!--                     <div class="help-block with-errors"></div> -->
+  <!--                   </div> -->
+  <!--                 </div> -->
+  <!--                 <div class="col-md-6"> -->
+  <!--                   <div class="form-group"> -->
+  <!--                     <input type="text" placeholder="Email" id="email" class="form-control" name="email" required -->
+  <!--                       data-error="Please enter your email"> -->
+  <!--                     <div class="help-block with-errors"></div> -->
+  <!--                   </div> -->
+  <!--                 </div> -->
+  <!--                 <div class="col-md-12"> -->
+  <!--                   <div class="form-group"> -->
+  <!--                     <input type="text" placeholder="Subject" id="msg_subject" class="form-control" required -->
+  <!--                       data-error="Please enter your subject"> -->
+  <!--                     <div class="help-block with-errors"></div> -->
+  <!--                   </div> -->
+  <!--                 </div> -->
+  <!--                 <div class="col-md-12"> -->
+  <!--                   <div class="form-group"> -->
+  <!--                     <textarea class="form-control" id="message" placeholder="Your Message" rows="5" -->
+  <!--                       data-error="Write your message" required></textarea> -->
+  <!--                     <div class="help-block with-errors"></div> -->
+  <!--                   </div> -->
+  <!--                   <div class="submit-button"> -->
+  <!--                     <button class="btn btn-common" id="submit" type="submit">Send -->
+  <!--                       Message</button> -->
+  <!--                     <div id="msgSubmit" class="h3 text-center hidden"></div> -->
+  <!--                     <div class="clearfix"></div> -->
+  <!--                   </div> -->
+  <!--                 </div> -->
+  <!--               </div> -->
+  <!--             </form> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-md-6 col-lg-6 col-sm-12"> -->
+  <!--           <div class="footer-right-area wow fadeIn"> -->
+  <!--             <h2>Contact Address</h2> -->
+  <!--             <div class="footer-right-contact"> -->
+  <!--               <div class="single-contact"> -->
+  <!--                 <div class="contact-icon"> -->
+  <!--                   <i class="fa fa-map-marker"></i> -->
+  <!--                 </div> -->
+  <!--                 <p>San Francisco, CA</p> -->
+  <!--               </div> -->
+  <!--               <div class="single-contact"> -->
+  <!--                 <div class="contact-icon"> -->
+  <!--                   <i class="fa fa-envelope"></i> -->
+  <!--                 </div> -->
+  <!--                 <p><a href="/cdn-cgi/l/email-protection#b8d0ddd4d4d7f8ccd7d596dbd7d5"><span class="__cf_email__" -->
+  <!--                       data-cfemail="2c44494040436c584341024f4341">[email&#160;protected]</span></a> -->
+  <!--                 </p> -->
+  <!--                 <p><a href="/cdn-cgi/l/email-protection#a5d1cac8d6c4d0c9cbccc0d7e5c2c8c4ccc98bc6cac8"><span -->
+  <!--                       class="__cf_email__" -->
+  <!--                       data-cfemail="4f3b20223c2e3a2321262a3d0f28222e2623612c2022">[email&#160;protected]</span></a> -->
+  <!--                 </p> -->
+  <!--               </div> -->
+  <!--               <div class="single-contact"> -->
+  <!--                 <div class="contact-icon"> -->
+  <!--                   <i class="fa fa-phone"></i> -->
+  <!--                 </div> -->
+  <!--                 <p><a href="#">+ (00) 123 456 789</a></p> -->
+  <!--                 <p><a href="#">+ (00) 123 344 789</a></p> -->
+  <!--               </div> -->
+  <!--             </div> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--         <div class="col-md-12"> -->
+  <!--           <div id="conatiner-map"></div> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </section> -->
+
+
+  <footer class="footer-area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="footer-text text-center wow fadeInDown" data-wow-delay="0.3s">
+            <ul class="social-icon">
+              {{ range .Site.Data.social.socials }}
+                <li>
+                  <a class={{ .class }} href="{{ .url }}" target="_blank" rel="noopener">
+                    <i class="{{ .icon }}"></i>
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+            <p>Copyright © 2018 UIdeck All Right Reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <a href="#" class="back-to-top">
+    <i class="icon-arrow-up"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js" integrity="sha512-I1SRWCuHnqVwlUXfm2TNMDduALHE1LfFpbQtFPY2z33Jy0iJAEXBDgrRrBLbpVChGclfCB0Hfy0F8wLVJtIVPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  {{ $js := resources.Get "js/wow.js" }}
+  <script src="{{ $js.Permalink }}"></script>
+  {{ $js := resources.Get "js/main.js" }}
+  <script src="{{ $js.Permalink }}"></script>
+</body>
+
+</html>
