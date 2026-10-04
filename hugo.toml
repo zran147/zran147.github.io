@@ -33,7 +33,7 @@ copyright = ""
 enableRobotsTXT = true
 # whether to use git commit log
 # 是否使用 git 信息
-enableGitInfo = false
+enableGitInfo = true
 # whether to use emoji code
 # 是否使用 emoji 代码
 enableEmoji = true
@@ -48,6 +48,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   disableAliases = false
   pagerSize = 10
   path = "page"
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
 
 # Menu config
 # 菜单配置
@@ -86,7 +89,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 [params]
   # site default theme ["auto", "light", "dark"]
   # 网站默认主题 ["auto", "light", "dark"]
-  defaultTheme = "auto"
+  defaultTheme = "dark"
+
+  # color palette: file name in themes/LoveIt/assets/css/palettes/
+  # options: teal-peach, sage-cream, ocean-blue, navy-orange, navy-gold,
+  #          navy-blue, slate-coral, bluegray-red, blue-green-light, gold-navy,
+  #          black-warm-brown, warm-black, slate, red-black, deep-navy,
+  #          navy-steel (see themes/LoveIt/data/palettes.yml)
+  # Also switchable at runtime via the palette icon in the header.
+  palette = "black-warm-brown"
   # public git repo url only then enableGitInfo is true
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
   gitRepo = "https://github.com/zran147/LoveIt"
@@ -525,7 +536,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # Comment config
     # 评论系统设置
     [params.page.comment]
-      enable = true
+      enable = false
       # Disqus comment config (https://disqus.com/)
       # Disqus 评论系统设置 (https://disqus.com/)
       [params.page.comment.disqus]
