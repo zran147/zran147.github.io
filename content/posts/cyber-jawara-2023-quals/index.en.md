@@ -31,7 +31,7 @@ Diberikan dua PNG yang tidak bisa dibuka. Setelah membukanya pada bless hex edit
 
 {{< image src="apocalypse-hex.png" caption="Struktur chunk PNG yang size dan CRC-nya dihapus menjadi 00 (bless hex editor)" >}}
 
-**solver.py**:
+**solver.py**
 
 ```python
 #!/usr/bin/env python3
@@ -103,7 +103,7 @@ Setelah membaca ulang deskripsi dan hint, saya mencari-cari CVE dan menemukan <h
 
 ### Eksekusi mendapatkan flag
 
-**acropalypse_matching_sha256.py**:
+**acropalypse_matching_sha256.py**
 
 ```python
 import zlib
@@ -254,7 +254,7 @@ pack_png_chunk(out, b"IEND", b"")
 print("Done!")
 ```
 
-{{< image src="apocalypse-result1.png" caption="Output acropalypse_matching_sha256.py" >}}
+{{< image src="apocalypse-result1.png" caption="Output acropalypse_matching_sha256.py" height=1 >}}
 
 {{< admonition note "Catatan" >}}
 Tinggi gambar awal kami dapatkan dari perkiraan device Android yang digunakan, dari referensi <https://acropalypse.app/>.
@@ -285,8 +285,8 @@ can't pwn with my sore arm
 
 Diberikan suatu binary chall yang merupakan binary ARM 32-bit LSB, dan tidak stripped. Mitigasi yang hidup hanyalah NX dan Partial-RELRO. Terdapat fungsi `a` yang memanggil `puts(binsh)` dan fungsi `b` yang memanggil `system(command)`. Variabel `binsh` berisi string `"/bin/sh"` dan `command` berisi string `"id"` dan keduanya merupakan variabel global. Terdapat juga vulnerability buffer overflow pada fungsi `main`.
 
-{{< image src="sorearm-checksec.png" caption="file & checksec chall" >}}
-{{< image src="sorearm-disasm.png" caption="Hasil decompile fungsi a, b, dan main" >}}
+{{< image src="sorearm-checksec.png" caption="file & checksec chall" width=650 >}}
+{{< image src="sorearm-disasm.png" caption="Hasil decompile fungsi a, b, dan main" width=550 >}}
 
 ### Mencari jalan menuju shell
 
@@ -297,7 +297,7 @@ Setelah mencari gadget dan melihat instruksi-instruksi pada fungsi `b`, terlihat
 
 ### Eksekusi mendapatkan shell
 
-**solve.py**:
+**solve.py**
 
 ```python
 #!/usr/bin/env python3
@@ -354,7 +354,7 @@ if __name__ == "__main__":
     main()
 ```
 
-{{< image src="sorearm-result.png" caption="Exploit berhasil, flag didapat" >}}
+{{< image src="sorearm-result.png" caption="Exploit berhasil, flag didapat" width=700 >}}
 
 {{< admonition note "Catatan" >}}
 Ingat untuk men-download qemu-user untuk menjalankan binary tersebut apabila menggunakan arsitektur yang berbeda dari ARM, dan juga gdb-multiarch untuk debugging-nya.
