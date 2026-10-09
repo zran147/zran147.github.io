@@ -3,7 +3,7 @@ title = "Cyber Jawara 2023 Quals"
 date = 2023-11-21
 draft = false
 categories = ["CTF Writeups"]
-tags = ["cyber-jawara", "forensics", "pwn", "writeup"]
+tags = ["cyber-jawara", "forensik", "pwn", "writeup"]
 summary = "Writeup tim CP Enjoyer untuk challenge Forensics (apocalypse) dan Pwn (sorearm) di CTF Cyber Jawara 2023 babak kualifikasi."
 +++
 
