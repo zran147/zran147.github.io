@@ -11,7 +11,7 @@ Writeup dari tim **CP Enjoyer** untuk FindIT 2023 Final — hanya bagian **Foren
 
 ---
 
-# Forensic
+# Forensik
 
 ## Tersirrat (194 pts)
 
