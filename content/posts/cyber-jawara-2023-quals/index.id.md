@@ -7,7 +7,7 @@ tags = ["cyber-jawara", "forensik", "pwn", "writeup"]
 summary = "Writeup tim CP Enjoyer untuk challenge Forensik (apocalypse) dan Pwn (sorearm) di CTF Cyber Jawara 2023 babak kualifikasi."
 +++
 
-Writeup dari tim **CP Enjoyer** untuk CTF Cyber Jawara 2023 babak kualifikasi — hanya bagian **Forensics** dan **Pwn**.
+Writeup dari tim **CP Enjoyer** untuk CTF Cyber Jawara 2023 babak kualifikasi — hanya bagian **Forensik** dan **Pwn**.
 
 ---
 
