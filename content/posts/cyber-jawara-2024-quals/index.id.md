@@ -4,7 +4,7 @@ date = 2025-02-11
 draft = false
 categories = ["CTF Writeups"]
 tags = ["cyber-jawara", "forensik", "misc", "web", "writeup"]
-summary = "Writeup tim CP Enjoyer untuk challenge Forensics (Grayscale, Log4Shell 1), Misc (py50), dan Web (SVG Validator) di CTF Cyber Jawara 2024 babak kualifikasi."
+summary = "Writeup tim CP Enjoyer untuk challenge Forensik (Grayscale, Log4Shell 1), Misc (py50), dan Web (SVG Validator) di CTF Cyber Jawara 2024 babak kualifikasi."
 +++
 
 Writeup dari tim **CP Enjoyer** untuk CTF Cyber Jawara 2024 babak kualifikasi — hanya bagian **Forensik**, **Misc** (py50), dan **Web** (SVG Validator).

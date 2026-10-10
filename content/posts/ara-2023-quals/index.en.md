@@ -2,12 +2,12 @@
 title = "ARACTF 2023 Quals"
 date = 2023-02-26
 draft = false
-categories = ["CTF Writeups"]
+categories = ["CTF Writeups", "Not Translated"]
 tags = ["aractf", "misc", "pwn", "writeup"]
-summary = "CP Enjoyer's writeup for the Misc (Truth, in-sanity check) and Pwn (nasgor komplek, basreng komplek) challenges at ARACTF 2023 qualification."
+summary = "Writeup tim CP Enjoyer untuk challenge Misc (Truth, in-sanity check) dan Pwn (nasgor komplek, basreng komplek) di ARACTF 2023 babak kualifikasi."
 +++
 
-CP Enjoyer's writeup for ARACTF 2023 qualification — the **Misc** (Truth, in-sanity check) and **Pwn** (nasgor komplek, basreng komplek) sections only.
+Writeup dari tim **CP Enjoyer** untuk ARACTF 2023 babak kualifikasi — hanya bagian **Misc** (Truth, in-sanity check) dan **Pwn** (nasgor komplek, basreng komplek).
 
 ---
 
@@ -15,7 +15,7 @@ CP Enjoyer's writeup for ARACTF 2023 qualification — the **Misc** (Truth, in-s
 
 ## Truth (176 pts)
 
-{{< admonition quote "Description" >}}
+{{< admonition quote "Deskripsi" >}}
 Kuronushi traveled far away from his country to learn something about himself. He never sure about his identity. Untill One day, he met a sage who gave him a book of truth. The sage said " To understand about yourself,Erase the title and find the Bigger case"
 
 Submit the flag on this format `ARA2023{}`. Separate the sentences with `_`.
@@ -25,15 +25,15 @@ Submit the flag on this format `ARA2023{}`. Separate the sentences with `_`.
 **Attachments:** `Truth.pdf`
 {{< /admonition >}}
 
-### Initial analysis
+### Analisis awal
 
-We are given a `Truth.pdf` file whose password is unknown. We brute-forced the password with `pdfcrack` using the `rockyou.txt` wordlist.
+Diberikan suatu file `Truth.pdf` yang tidak diketahui passwordnya. Kami melakukan bruteforce password dengan `pdfcrack` menggunakan wordlist `rockyou.txt`. Password yang didapatkan adalah `subarukun`.
 
-{{< image src="truth-pdfcrack.png" caption="pdfcrack found the Truth.pdf password" >}}
+{{< image src="truth-pdfcrack.png" caption="pdfcrack berhasil menemukan password Truth.pdf" height=230 >}}
 
-### Getting the flag
+### Mendapatkan flag
 
-The PDF that opened contained a fairly long story. Based on the clue given in the challenge description, we only need to take the uppercase letters except in the story's title. The following is the solver we used.
+PDF yang berhasil dibuka berisi cerita yang cukup panjang. Berdasarkan clue yang diberikan pada deskripsi soal, kami hanya perlu mengambil huruf uppercase kecuali pada title cerita tersebut. Berikut solver yang kami gunakan.
 
 **solver.py**
 
@@ -44,13 +44,13 @@ for i in a:
         print(i, end="")
 ```
 
-After that, we just needed to separate each word with an underscore.
+Setelah itu, kami tinggal memisahkan masing-masing kata dengan underscore.
 
 > Flag: `ARA2023{SOUNDS_LIKE_FANDAGO}`
 
 ## in-sanity check (100 pts)
 
-{{< admonition quote "Description" >}}
+{{< admonition quote "Deskripsi" >}}
 Even the flag for sanity check is gone?
 
 **Author:** circlebytes#5520
@@ -58,15 +58,15 @@ Even the flag for sanity check is gone?
 **Attachments:** Google Docs link
 {{< /admonition >}}
 
-### Initial analysis
+### Analisis awal
 
-We were given a gdocs link which, after we opened it, had many people interacting in it. We immediately thought of checking the history of that gdocs.
+Diberikan link gdocs yang setelah kami buka terdapat banyak orang yang sedang berinteraksi di sana. Kami langsung berpikir untuk memeriksa riwayat dari gdocs tersebut.
 
-### Getting the flag
+### Mendapatkan flag
 
-It turned out the flag was there when the gdocs was first created.
+Ternyata terdapat flag pada saat gdocs pertama kali dibuat.
 
-{{< image src="insanity-gdocs.png" caption="The flag found in the Google Docs version history" >}}
+{{< image src="insanity-gdocs.png" caption="Flag ditemukan pada riwayat versi Google Docs" >}}
 
 > Flag: `ARA2023{w3lc0m3_4nd_h4v3_4_gr3at_ctfs}`
 
@@ -76,7 +76,7 @@ It turned out the flag was there when the gdocs was first created.
 
 ## nasgor komplek (496 pts)
 
-{{< admonition quote "Description" >}}
+{{< admonition quote "Deskripsi" >}}
 abang Ubun nasi gorengnya memang enak tapi lebih enak lagi jika di traktir ka 0xdc9 <3 #ARA2023
 
 **Author:** beenchilling#4944
@@ -84,13 +84,15 @@ abang Ubun nasi gorengnya memang enak tapi lebih enak lagi jika di traktir ka 0x
 `nc 103.152.242.116 20378`
 {{< /admonition >}}
 
-### Initial analysis
+### Analisis awal
 
-We were given a service that, when opened, has two options, namely mesen and ambil pesan.
+Diberikan servis yang apabila dibuka, terdapat dua pilihan, yaitu mesen dan ambil pesan.
 
-{{< image src="nasgor-menu.png" caption="Service menu (mesen / ambil pesanan)" >}}
+{{< image src="nasgor-menu.png" caption="Menu service (mesen / ambil pesanan)" height=80 >}}
 
-On the `mesen` option there is a format string vulnerability so we can leak the stack contents. So we made a script to display the stack contents from offset 1 to 100.
+Pada pilihan `mesen`, terdapat vulnerability format string sehingga kita dapat leak isi stack. Maka, kami membuat script untuk menampilkan isi stack pada offset 1 sampai 100.
+
+### Leak canary dan libc
 
 **leak.py**
 
@@ -105,12 +107,14 @@ for i in range(100):
     print(i+1, leak.decode())
 ```
 
-{{< image src="nasgor-leak1.png" caption="Stack leak (first run)" >}}
-{{< image src="nasgor-leak2.png" caption="Stack leak (second run)" >}}
+{{< image-row height=360 >}}
+{{< image src="nasgor-leak1.png" caption="Leak isi stack (run pertama)" >}}
+{{< image src="nasgor-leak2.png" caption="Leak isi stack (run kedua)" >}}
+{{< /image-row >}}
 
-### Getting the flag
+Setelah menjalankan program tersebut dua kali, terlihat pada offset 11 terdapat canary, dan terdapat beberapa alamat yang memiliki 3 digit terakhir dekat canary tersebut. Setelah mencari di libc.rip untuk symbol `__libc_start_main_ret`, didapatkan offset 17 merupakan alamat dari symbol tersebut. Didapatkan dua libc yang memenuhi persyaratan, maka kami menggunakan `libc6_2.27-3ubuntu1.5_amd64.so`. Setelah itu, kami membuat script untuk leak canary, leak `__libc_start_main_ret` untuk ret2libc dan ret2syscall.
 
-After running the program twice, it can be seen that at offset 11 there is a canary, and there are several addresses that have the last 3 digits close to that canary. After searching on libc.rip for the symbol `__libc_start_main_ret`, offset 17 was found to be the address of that function. Two libcs matched the requirements, so we used `libc6_2.27-3ubuntu1.5_amd64.so`. After that, we made a script to leak the canary and leak `__libc_start_main_ret` for ret2libc and ret2syscall.
+### Mendapatkan shell
 
 **solve.py**
 
@@ -142,15 +146,15 @@ p.sendlineafter(b'atau saran?\n', payload)
 p.interactive()
 ```
 
-After running that program, we got a shell and the flag.
+Setelah menjalankan program tersebut, didapatkan shell dan flag.
 
-{{< image src="nasgor-flag.png" caption="Got a shell and the flag" >}}
+{{< image src="nasgor-flag.png" caption="Berhasil mendapatkan shell dan flag" height=400 >}}
 
 > Flag: `ARA2023{masak_ga_liat_tapi_enak_m3m4ng_0P_orz}`
 
 ## basreng komplek (460 pts)
 
-{{< admonition quote "Description" >}}
+{{< admonition quote "Deskripsi" >}}
 aku suka basreng. apalagi kalau di bawain dari bogor sama ka Aseng. #ARA2023
 
 **Author:** beenchilling#4944
@@ -160,11 +164,11 @@ aku suka basreng. apalagi kalau di bawain dari bogor sama ka Aseng. #ARA2023
 `nc 103.152.242.116 20371`
 {{< /admonition >}}
 
-### Initial analysis
+### Analisis awal
 
-We were given a service that, when opened, asks for input. We were also given a `vuln` binary that has functions `a` through `h`. There is a buffer overflow vulnerability and RIP is at offset 72. Using the gadgets provided in functions `a` through `h`, we can get a shell.
+Diberikan servis yang apabila dibuka akan diminta input. Diberikan juga suatu binary `vuln` yang memiliki fungsi-fungsi `a` sampai `h`. Terdapat vulnerability buffer overflow dan RIP terletak pada offset 72. Dengan menggunakan gadget-gadget yang diberikan pada fungsi-fungsi `a` sampai `h` tadi, kita bisa mendapatkan shell.
 
-### Getting the flag
+### Mendapatkan shell
 
 **solve.py**
 
@@ -194,6 +198,6 @@ p.sendline(payload)
 p.interactive()
 ```
 
-{{< image src="basreng-flag.png" caption="Got a shell and the flag" >}}
+{{< image src="basreng-flag.png" caption="Berhasil mendapatkan shell dan flag" height=300 >}}
 
 > Flag: `ARA2023{CUST0M_ROP_D3f4ult_b4sr3ng}`
